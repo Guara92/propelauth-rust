@@ -326,7 +326,7 @@ pub enum ClearUserPasswordError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum InviteUserToOrgError {
-    Status400(crate::models::BadInviteUserToOrgRequest),
+    Status400(serde_json::Value),
     Status401(serde_json::Value),
     Status404(serde_json::Value),
     UnknownValue(serde_json::Value),
