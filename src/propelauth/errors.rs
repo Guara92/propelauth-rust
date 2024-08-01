@@ -1,8 +1,8 @@
 use crate::models::{
     BadCreateAccessTokenError, BadCreateMagicLinkRequest, BadCreateOrgRequest,
     BadCreateUserRequest, BadFetchOrgQuery, BadFetchUsersByQuery, BadFetchUsersInOrgQuery,
-    BadMigrateUserRequest, BadUpdateOrgRequest, BadUpdatePasswordRequest,
-    BadUpdateUserEmailRequest, BadUpdateUserMetadataRequest,
+    BadInviteUserToOrgRequest, BadMigrateUserRequest, BadUpdateOrgRequest,
+    BadUpdatePasswordRequest, BadUpdateUserEmailRequest, BadUpdateUserMetadataRequest,
 };
 use thiserror::Error;
 
@@ -61,6 +61,21 @@ pub enum CreateUserError {
 
     #[error("Bad request")]
     BadRequest(BadCreateUserRequest),
+
+    #[error("Unexpected exception, please try again")]
+    UnexpectedException,
+}
+
+#[derive(Error, Debug, PartialEq, Clone)]
+pub enum InviteUserToOrgError {
+    #[error("Not found")]
+    NotFound,
+
+    #[error("Invalid API Key")]
+    InvalidApiKey,
+
+    #[error("Bad request")]
+    BadRequest(BadInviteUserToOrgRequest),
 
     #[error("Unexpected exception, please try again")]
     UnexpectedException,
