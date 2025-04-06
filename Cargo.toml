@@ -15,6 +15,8 @@ actix-web = { version = "4", optional = true }
 axum_06 = { package = "axum", version = "^0.6", optional = true }
 axum_07 = { package = "axum", version = "^0.7", optional = true }
 axum_08 = { package = "axum", version = "^0.8", optional = true }
+tonic_013 = { package = "tonic", version = "^0.13", optional = true }
+hyper = { version = "^1", optional = true }
 chrono = "0.4.39"
 jsonwebtoken = "9.3.0"
 serde = "^1.0"
@@ -40,6 +42,7 @@ axum06 = ["dep:axum_06", "dep:tower"]
 axum07 = ["dep:axum_07", "dep:tower"]
 axum08 = ["dep:axum_08", "dep:tower"]
 actix4 = ["dep:actix-web"]
+tonic013 = ["dep:tonic_013", "dep:tower", "dep:hyper"]
 __reqwest = ["reqwest/json", "reqwest/multipart"]
 
 [lib]
